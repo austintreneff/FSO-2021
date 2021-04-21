@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Part 0: This is just for local code following the tutorial 
+part0
