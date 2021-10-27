@@ -105,3 +105,6 @@ dist
 
 # Part 0: This is just for local code following the tutorial 
 part0
+
+# .DS_Store
+.DS_Store
