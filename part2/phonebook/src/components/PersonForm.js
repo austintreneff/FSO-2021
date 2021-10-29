@@ -1,7 +1,7 @@
 import React from 'react'
 import personsService from '../services/personsService'
 
-const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, setPersons}) => {
+const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, setPersons, setAddedMessage}) => {
 
   const addEntry = (event) => {
     event.preventDefault()
@@ -18,7 +18,11 @@ const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, set
     } else {
       personsService
         .create({ name: newName, number: newNumber})
-        .then(addedPerson => setPersons(persons.concat(addedPerson)))
+        .then(addedPerson => {
+          setPersons(persons.concat(addedPerson))
+          setAddedMessage(`Added ${addedPerson.name}`)
+          setTimeout(() => setAddedMessage(null), 5000)
+        })
     }
     setNewName('')
     setNewNumber('')

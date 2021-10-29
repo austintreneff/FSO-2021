@@ -1,7 +1,7 @@
 import React from 'react'
 import DeleteButton from './DeleteButton'
 
-const Persons = ({persons, setPersons, newFilter}) => {
+const Persons = ({persons, setPersons, newFilter, setErrorMessage}) => {
 
   return (
     <div>
@@ -10,7 +10,7 @@ const Persons = ({persons, setPersons, newFilter}) => {
           .filter(obj => obj.name.toLowerCase().includes(newFilter.toLowerCase()))
           .map(person => (
             <div key={person.name}>
-              {person.name} {person.number} <DeleteButton person={person} persons={persons} setPersons={setPersons}/>
+              {person.name} {person.number} <DeleteButton person={person} persons={persons} setPersons={setPersons} setErrorMessage={setErrorMessage}/>
             </div>
           ))
       }
