@@ -8,7 +8,6 @@ const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, set
     if(checkNameExists(newName)) {
       const existingUser = checkNameExists(newName)
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
-        console.log('hey')
         personsService
           .update(existingUser.id, {...existingUser, number: newNumber})
           .then(updatedPerson => {

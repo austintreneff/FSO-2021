@@ -9,7 +9,7 @@ const Persons = ({persons, setPersons, newFilter, setErrorMessage}) => {
         persons
           .filter(obj => obj.name.toLowerCase().includes(newFilter.toLowerCase()))
           .map(person => (
-            <div key={person.name}>
+            <div key={person.id}>
               {person.name} {person.number} <DeleteButton person={person} persons={persons} setPersons={setPersons} setErrorMessage={setErrorMessage}/>
             </div>
           ))
