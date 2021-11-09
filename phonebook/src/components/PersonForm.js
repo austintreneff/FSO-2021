@@ -1,7 +1,7 @@
 import React from 'react'
 import personsService from '../services/personsService'
 
-const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, setPersons, setAddedMessage}) => {
+const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, setPersons, setAddedMessage, setErrorMessage }) => {
 
   const addEntry = (event) => {
     event.preventDefault()
@@ -13,6 +13,10 @@ const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, set
           .then(updatedPerson => {
             setPersons(persons.map(person => person.id === updatedPerson.id ? updatedPerson : person))
           })
+          .catch(error => {
+            setErrorMessage(error.response.data.error)
+            setTimeout(() => setErrorMessage(null), 5000)
+          })
       }
     } else {
       personsService
@@ -21,6 +25,10 @@ const PersonForm = ({ newName, setNewName, newNumber, setNewNumber, persons, set
           setPersons(persons.concat(addedPerson))
           setAddedMessage(`Added ${addedPerson.name}`)
           setTimeout(() => setAddedMessage(null), 5000)
+        })
+        .catch(error => {
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => setErrorMessage(null), 5000)
         })
     }
     setNewName('')

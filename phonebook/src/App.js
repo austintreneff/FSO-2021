@@ -32,7 +32,7 @@ const App = () => {
       <ErrorNotifcation message={errorMessage}/>
       <Filter newFilter={newFilter} setNewFilter={setNewFilter}/>
       <h2>Add new:</h2>
-      <PersonForm persons={persons} setPersons={setPersons} newName={newName} newNumber={newNumber} setNewName={setNewName} setNewNumber={setNewNumber} setAddedMessage={setAddedMessage}/>
+      <PersonForm persons={persons} setPersons={setPersons} newName={newName} newNumber={newNumber} setNewName={setNewName} setNewNumber={setNewNumber} setAddedMessage={setAddedMessage} setErrorMessage={setErrorMessage}/>
       <h2>Numbers</h2>
       <Persons persons={persons} setPersons={setPersons} newFilter={newFilter} setErrorMessage={setErrorMessage}/>
     </div>
